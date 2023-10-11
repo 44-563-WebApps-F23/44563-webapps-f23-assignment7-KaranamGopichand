@@ -63,6 +63,9 @@
   </div>
   </div>
   </div>
+  <div>
+    <button onclick="bonusGame()">Bonus Game</button>
+  </div>
   <script>
   let ids = ["loc0","loc1" ,"loc2" ,"loc3" ,"loc4" ,"loc5" ,"loc6" ,"loc7" ,"loc8" ,"loc9" , "loc10","loc11","loc12","loc13","loc14", "loc15","loc16","loc17","loc18","loc19", "loc20","loc21","loc22","loc23","loc24"];
   let checkCount = 0;
@@ -125,6 +128,26 @@
     penalty += 2;
         id_penalty.innerHTML = `Penalty is ${penalty}`;
     }
+    function bonusGame(){
+      treasureLocation = Math.floor(Math.random() * 25);
+      trapLocation = Math.floor(Math.random() * 25);
+        for(let i=0; i<24; i++){
+          if(i === trapLocation){
+            id = document.getElementById(ids[i]);
+            id.src = "trap.jpeg";
+          }
+          else if(i === treasureLocation){
+            id = document.getElementById(ids[i]);
+            id.src = "treasure.jpg";
+          }
+          else{
+            id = document.getElementById(ids[i]);
+            id.src = "vintage.jpeg";
+          }
+        }
+    }
+id_location.innerHTML = `Number of locations checked is  ${checkCount}`;
+id_penalty.innerHTML = `Penalty is ${penalty}`;
 </script>
 </body>
 </html>
